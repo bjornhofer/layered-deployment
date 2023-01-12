@@ -7,7 +7,9 @@ dependency management_group {
   config_path = "/home/azureuser/terragrunt/layer1/management_group"
 }
 
-dependencies 
+dependencies {
+    paths = ["/home/azureuser/terragrunt/layer1/management_group"]
+}
 
 terraform {
     source = "github.com/bjornhofer/terraform_rbac.git"
