@@ -12,7 +12,7 @@ dependencies {
 }
 
 terraform {
-    source = "github.com/bjornhofer/terraform_policy.git"
+  source = include.root.locals.sources["policies"]
 }
 
 inputs = {

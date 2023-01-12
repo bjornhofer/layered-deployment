@@ -12,7 +12,7 @@ dependencies {
 }
 
 terraform {
-    source = "github.com/bjornhofer/terraform_rbac.git"
+  source = include.root.locals.sources["rbac"]
 }
 
 inputs = {

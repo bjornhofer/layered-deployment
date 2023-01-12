@@ -1,11 +1,11 @@
 locals {
     projectdetails = yamldecode(file(find_in_parent_folders("project.yml")))
     layer_settings = try(yamldecode(file("settings.yml")), null)
-    
+    sources = yamldecode(file(find_in_parent_folders("sources.yml")))
 }
 
-dependency "layer0" {
-    config_path = "/home/azureuser/terragrunt/layer0"
+dependency "subscription" {
+    config_path = "/home/azureuser/terragrunt/layer0/subscription"
 }
 
 generate "backend" {
@@ -29,7 +29,7 @@ generate "provider" {
     contents = <<EOF
     provider "azurerm" {
         features {}
-        subscription_id = "${dependency.layer0.outputs.subscription.subscription_id}"
+        subscription_id = "${dependency.subscription.outputs.subscription.subscription_id}"
     }
 EOF
 }

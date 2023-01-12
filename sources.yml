@@ -1,0 +1,4 @@
+subscription: github.com/bjornhofer/terraform_subscription.git
+management_group: github.com/bjornhofer/terraform_management_group.git
+policies: github.com/bjornhofer/terraform_policy.git
+rbac: github.com/bjornhofer/terraform_rbac.git
