@@ -4,11 +4,11 @@ include "root" {
 }
 
 dependency management_group {
-  config_path = "/home/azureuser/terragrunt/layer1/management_group"
+  config_path = "${include.root.locals.projectdetails.root_folder}/layer1/management_group"
 }
 
 dependencies {
-    paths = ["/home/azureuser/terragrunt/layer1/management_group"]
+    paths = ["${include.root.locals.projectdetails.root_folder}/layer1/management_group"]
 }
 
 terraform {

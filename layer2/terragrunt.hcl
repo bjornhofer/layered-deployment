@@ -16,7 +16,7 @@ generate "backend" {
         backend "azurerm" {
             resource_group_name  = "salzburgagstate"
             storage_account_name = "${local.projectdetails.name}sagstate"
-            container_name       = "layer1"
+            container_name       = "layer2"
             key                  = "terraform.tfstate"
         }
     }
@@ -29,7 +29,7 @@ generate "provider" {
     contents = <<EOF
     provider "azurerm" {
         features {}
-        subscription_id = "${try(local.projectdetails.subscription_id, dependency.subscription.outputs.subscription.subscription_id)}"
+        subscription_id = "${dependency.subscription.outputs.subscription.subscription_id}"
     }
 EOF
 }
