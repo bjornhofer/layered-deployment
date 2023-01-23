@@ -1,4 +1,13 @@
-.terraform
-*.terraform.lock.hcl
+**/.terraform/*
+**/.terragrunt*/*
+**/.terraform.lock*
+**/test/*
 *.tf
+terraform.tfvars.ignore
+terraform.tfvars
+testenvironment.tf.ignore
+testenvironment.tf
+*.tf
+id_rsa.pub
 project.yml
+settings.yml
