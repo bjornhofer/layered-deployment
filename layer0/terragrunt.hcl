@@ -14,18 +14,3 @@ generate "provider" {
     }
 EOF
 }
-
-generate "backend" {
-    path = "backend.tf"
-    if_exists = "overwrite_terragrunt"
-    contents = <<EOF
-    terraform {
-        backend "azurerm" {
-            resource_group_name  = "statefiles"
-            storage_account_name = "${local.projectdetails.name}statefile"
-            container_name       = "layer0"
-            key                  = "terraform.tfstate"
-        }
-    }
-    EOF
-}

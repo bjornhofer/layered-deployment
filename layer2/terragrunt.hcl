@@ -8,21 +8,6 @@ dependency "subscription" {
     config_path = "${local.projectdetails.root_folder}/layer0/subscription"
 }
 
-generate "backend" {
-    path = "backend.tf"
-    if_exists = "overwrite_terragrunt"
-    contents = <<EOF
-    terraform {
-        backend "azurerm" {
-            resource_group_name  = "salzburgagstate"
-            storage_account_name = "${local.projectdetails.name}sagstate"
-            container_name       = "layer2"
-            key                  = "terraform.tfstate"
-        }
-    }
-    EOF
-}
-
 generate "provider" {
     path = "provider.tf"
     if_exists = "overwrite_terragrunt"

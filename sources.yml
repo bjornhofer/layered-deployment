@@ -1,6 +1,7 @@
-subscription: github.com/bjornhofer/terraform_subscription.git
-management_group: github.com/bjornhofer/terraform_management_group.git
-policies: github.com/bjornhofer/terraform_policy.git
-rbac: github.com/bjornhofer/terraform_rbac.git
-resource_group: github.com/bjornhofer/terraform_resource_group.git
-vnet: https://github.com/bjornhofer/terraform_vnet.git
+subscription: "github.com/bjornhofer/terraform_subscription.git"
+management_group: "github.com/bjornhofer/terraform_management_group.git"
+policies: "github.com/bjornhofer/terraform_policy.git"
+rbac: "github.com/bjornhofer/terraform_rbac.git"
+resource_group: "github.com/bjornhofer/terraform_resource_group.git"
+vnet: "github.com/bjornhofer/terraform_vnet.git"
+vnet_peering: "github.com/bjornhofer/terraform_vnet_peering.git"

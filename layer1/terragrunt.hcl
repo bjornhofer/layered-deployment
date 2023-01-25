@@ -14,8 +14,8 @@ generate "backend" {
     contents = <<EOF
     terraform {
         backend "azurerm" {
-            resource_group_name  = "salzburgagstate"
-            storage_account_name = "${local.projectdetails.name}sagstate"
+            resource_group_name  = "statefiles"
+            storage_account_name = "${local.projectdetails.name}statefile"
             container_name       = "layer1"
             key                  = "terraform.tfstate"
         }

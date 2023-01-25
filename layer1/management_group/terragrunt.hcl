@@ -3,6 +3,21 @@ include "root" {
   expose = true
 }
 
+generate "backend" {
+    path = "backend.tf"
+    if_exists = "overwrite_terragrunt"
+    contents = <<EOF
+    terraform {
+        backend "azurerm" {
+            resource_group_name  = "statefiles"
+            storage_account_name = "${include.root.locals.projectdetails.name}statefile"
+            container_name       = "layer1"
+            key                  = "management_groups.tfstate"
+        }
+    }
+    EOF
+}
+
 locals {
     root_management_group = "mg-root"
 }

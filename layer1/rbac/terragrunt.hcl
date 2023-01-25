@@ -3,13 +3,26 @@ include "root" {
   expose = true
 }
 
+generate "backend" {
+    path = "backend.tf"
+    if_exists = "overwrite_terragrunt"
+    contents = <<EOF
+    terraform {
+        backend "azurerm" {
+            resource_group_name  = "statefiles"
+            storage_account_name = "${include.root.locals.projectdetails.name}statefile"
+            container_name       = "layer1"
+            key                  = "rbac.tfstate"
+        }
+    }
+    EOF
+}
+
 dependency management_group {
-  //config_path = "/home/azureuser/terragrunt/layer1/management_group"
   config_path = "${include.root.locals.projectdetails.root_folder}/layer1/management_group"
 }
 
 dependencies {
-    //paths = ["/home/azureuser/terragrunt/layer1/management_group"]
     paths = ["${include.root.locals.projectdetails.root_folder}/layer1/management_group"]
 }
 
